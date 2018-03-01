@@ -70,7 +70,7 @@ function addMakerListner(marker,index,locationsObj,infowindow)
 			 return obj.label == event.label;
 			 
 			 });
-         google.maps.event.trigger(retObj, 'click');
+         google.maps.event.trigger(retObj[0], 'click');
     } 
     };
 
