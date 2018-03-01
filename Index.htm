@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Neighbourhoods Map</title>
+
+    <!-- Bootstrap core CSS -->
+   <link href="../map_neighbour/css/bootstrap.min.css" rel="stylesheet" />
+   
+    <!-- Custom styles for this template -->
+    <link href="../map_neighbour/css/map.css" rel="stylesheet" />
+
+   
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"></a>
+		    <form class="navbar-form navbar-right">
+            <input placeholder="Search…" type="search" name="q" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off"> 
+          </form>
+        </div>
+       
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+		 <div id="navbar" class="navbar-collapse collapse">
+        
+        </div>
+		
+		<ul class="nav nav-sidebar" data-bind="template: {name:'location', foreach:locations}"> 
+        </ul> 
+		
+		<script type="text/html" id="location">
+  <li data-bind="event: {click : $parent.selectItem}">
+    <strong data-bind="text: title"></strong> 
+  </li>
+</script>
+		
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Neighbourhoods Map</h1>
+<div id="map" class="map"></div>
+    
+  
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	
+   <script src="../scripts/jquery-3.2.1.min.js"></script>
+   <script src="../scripts/popper.min.js"></script>
+   <script src="../scripts/bootstrap.min.js"></script>
+   <script src="../scripts/knockout-min.js"></script>
+   <script src="../scripts/map.js"></script>
+     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjuBJgrT5MhAA9mPp1x75aOADfSKHVy1g&callback=initMap" onerror="mapError()"> </script>
+   
+  </body>
+</html>
