@@ -1,11 +1,13 @@
+For install the application on local machin, you should following this steps
+ 1- go to the  link : https://github.com/fatimahAldossari/fatimahAldossari.github.io
+ 2- from clone or downlwd button select downloadzip
+3- unzip file on your driver for example d:/fatimahaldossari.github.io-master
+4 - go and donload the nodjs from this link :https://nodejs.org/en/download/
+5- to run application on server open nodejs folder and run the follwinf commans nods
+a- write this command npm install http-server to install https server to install http server
+b- to run the server write this command: http-server d:/fatimahaldossari.github.io-master
 
-
-Add the links i sent to u and write the description for every link : as example first link for test site and the second for review the files of application
-1/ https://fatimahaldossari.github.io/Index.htm
-
-2/ https://github.com/fatimahAldossari
-
-
+after you get url copy url and add in browser you will see your file select index to open the application under htttp server
 
 
 
