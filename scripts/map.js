@@ -1,10 +1,15 @@
  var map;
  var markers = [];
  var locationsBU=[]; 
+ 
+  GrayMarker = 'img/Gray.png',
+  blueMarker = 'img/blue.png';
 
  // to add new marker
  function addMapMarkers(locations,isFromSearch) {
-
+	 clearMarkers();
+     markers=[];
+ 
 var infowindow = new google.maps.InfoWindow();
 	
 	
@@ -13,7 +18,8 @@ var infowindow = new google.maps.InfoWindow();
          position: new google.maps.LatLng(locations[i].lat, locations[i].Lng),
 		 animation: (isFromSearch===true)? google.maps.Animation.DROP:"",
 		 label:locations[i].label,
-         map: map
+         map: map,
+		 Icon:blueMarker
     });
 	markers.push(marker);
     addMakerListner(marker,i,locations[i],infowindow)
@@ -25,18 +31,28 @@ var infowindow = new google.maps.InfoWindow();
 // to add  listener to marker so when ckick marker will show windows info
 function addMakerListner(marker,index,locationsObj,infowindow)
 {
-	google.maps.event.addListener(marker, 'click', (function(marker, index) {
-		var self = marker;
-         return function() {
-            getVenueDetails(locationsObj, function(windowContent){
+	
+	 google.maps.event.addListener(marker, 'click', function() {
+      var self = this;
+      // Open corresponding infowindow
+     getVenueDetails(locationsObj, function(windowContent){
         // including content to the Info Window.
         infowindow.setContent(windowContent);
-        
+        //console.log(infoWindow);
         // opening the Info Window in the current map and at the current marker location.
         infowindow.open(map, self);
       });
-         };
-    })(marker, index));
+
+    toggleMarkerBounce(self);
+    // Let a marker stop bounce after 1.4 second
+    setTimeout(stopBounce, 1400);
+    // console.log(marker.getAnimation()); //check animation state
+    function stopBounce(){
+      self.setAnimation(null);
+      self.setIcon(blueMarker);
+    }
+   });
+	
 	
 }
  
@@ -174,6 +190,16 @@ function getVenueDetails(locationInfo, infoWindowCallback) {
 // Create an alert if Google Maps doesn't respond
 function mapError() {
     alert("Google Map is not responding. Check your connection or come back later.");
+}
+
+//Toggle function to make maker bounce
+function toggleMarkerBounce(marker) {
+  if (marker.getAnimation() !== null && marker.getAnimation()!="" ) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+    marker.setIcon(GrayMarker);
+  }
 }
 	  
 	  
