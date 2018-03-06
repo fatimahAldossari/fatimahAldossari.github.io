@@ -7,9 +7,11 @@
 
  // to add new marker
  function addMapMarkers(locations,isFromSearch) {
+	 if(isFromSearch!==true)
+	 {
 	 clearMarkers();
      markers=[];
- 
+	 }
 var infowindow = new google.maps.InfoWindow();
 	
 	
