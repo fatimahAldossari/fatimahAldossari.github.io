@@ -1,13 +1,18 @@
-For install the application on local machin, you should following this steps
- 1- go to the  link : https://github.com/fatimahAldossari/fatimahAldossari.github.io
- 2- from clone or downlwd button select downloadzip
-3- unzip file on your driver for example d:/fatimahaldossari.github.io-master
-4 - go and donload the nodjs from this link :https://nodejs.org/en/download/
-5- to run application on server open nodejs folder and run the follwinf commans nods
-a- write this command npm install http-server to install https server to install http server
-b- to run the server write this command: http-server d:/fatimahaldossari.github.io-master
+For install the application on local machin, you should following this steps:
 
-after you get url copy url and add in browser you will see your file select index to open the application under htttp server
+1- Go to the  link : https://github.com/fatimahAldossari/fatimahAldossari.github.io
+
+2- From clone or download button select downloadzip
+
+3- Unzip file on your driver for example C:/fatimahaldossari.github.io-master
+
+4 - Go and download the Nodejs from this link :https://nodejs.org/en/download/
+
+5- To run application on server open Nodejs folder and run "Node.js command prompt"
+   a- Write this command npm install http-server to install http server to install http server
+   b- To run the server write this command: http-server C:/fatimahaldossari.github.io-master
+
+after you will get URL to host application copy URL and add in browser, you will see your file select index to open the application under http server
 
 
 
@@ -185,4 +190,14 @@ function getVenueDetails(locationInfo, infoWindowCallback) {
     });
 
 
+}
+
+//Toggle function to make maker bounce and change marker label
+function toggleMarkerBounce(marker) {
+  if (marker.getAnimation() !== null && marker.getAnimation()!="" ) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+    marker.setIcon(GrayMarker);
+  }
 }
